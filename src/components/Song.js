@@ -1,12 +1,14 @@
 import React from "react";
 import "../styles/index.css";
 
-const Song = () => {
+const Song = (props) => {
+  const { currentSong } = props;
+
   return (
     <div className="song-container">
-      <h1>Picture</h1>
-      <h1>Song</h1>
-      <h1>Name artiste</h1>
+      <img src={currentSong.cover} />
+      <h2>{currentSong.name}</h2>
+      <h3>{currentSong.artist}</h3>
     </div>
   );
 };

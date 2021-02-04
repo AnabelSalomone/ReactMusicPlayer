@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Raleway";
 }
 
 /* Song */
@@ -12,7 +15,31 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: aquamarine;
+}
+
+.song-container img {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.song-container h1, h2, h3 {
+    color: rgb(59, 59, 59)
+}
+
+.song-container img {
+  animation-name: spin;
+  animation-duration: 30000ms;
+   animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
 
 /* Player */
@@ -23,7 +50,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: darkkhaki;
 }
 
 .player-time-control {
@@ -33,12 +59,17 @@ body {
 
 .player-time-control input {
   width: 100%;
-  padding: 1rem 2rem; /* Lets you grab the slider without exactly selecting it */
+  padding: 1rem 0rem; /* Lets you grab the slider without exactly selecting it */
 }
 
 .player-control{
     width: 50%;
     display: flex;
     align-items:center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
+.play, .skip-back, .skip-forward {
+  cursor: pointer
+}
+
