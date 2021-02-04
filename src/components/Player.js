@@ -16,6 +16,7 @@ const Player = (props) => {
   });
   const audioRef = useRef(null);
 
+  // Handles player: play and pause
   const playHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -26,6 +27,9 @@ const Player = (props) => {
     }
   };
 
+  //Timer of the song. 
+  //It grabs the event from the audio tag and gets the current time and the duration
+  //They're native props of the audio tag. then we set the songInfo
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
@@ -33,12 +37,14 @@ const Player = (props) => {
     setSongInfo({ currentTime: current, duration: duration });
   };
 
+  // Transform the time in a human readable way
   const getTime = (time) => {
     return (
       Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
     );
   };
 
+  //It updates the song following the position of the range input
   const dragHandler = (e) => {
     audioRef.current.currentTime = e.target.value 
     setSongInfo({...songInfo, currentTime: e.target.value})
