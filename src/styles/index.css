@@ -26,7 +26,7 @@ body {
     color: rgb(59, 59, 59)
 }
 
-.song-container img {
+.song-cover {
   animation-name: spin;
   animation-duration: 30000ms;
    animation-iteration-count: infinite;
