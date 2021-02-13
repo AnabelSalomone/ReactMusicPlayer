@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
+*{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5), transparent;
+}
+
+*::-webkit-scrollbar{
+width: 5px;
+}
+*::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -73,3 +92,39 @@ body {
   cursor: pointer
 }
 
+
+/*Library*/
+
+.library{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  background-color: lightcyan;
+  box-shadow: 2px 2px 50px gray;
+  overflow: scroll;
+}
+
+.library h2{
+  text-align: center;
+}
+
+.library-song{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.library-song:hover{
+  background-color: lightblue;
+}
+
+.library-song img{
+  width: 30%;
+  padding: 1rem 2rem;
+}
+
+.song-decription {
+  padding-left: 1rem;
+}
