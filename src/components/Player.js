@@ -27,7 +27,7 @@ const Player = (props) => {
     }
   };
 
-  //Timer of the song. 
+  //Timer of the song.
   //It grabs the event from the audio tag and gets the current time and the duration
   //They're native props of the audio tag. then we set the songInfo
   const timeUpdateHandler = (e) => {
@@ -46,8 +46,14 @@ const Player = (props) => {
 
   //It updates the song following the position of the range input
   const dragHandler = (e) => {
-    audioRef.current.currentTime = e.target.value 
-    setSongInfo({...songInfo, currentTime: e.target.value})
+    audioRef.current.currentTime = e.target.value;
+    setSongInfo({ ...songInfo, currentTime: e.target.value });
+  };
+
+  const autoPlayHandler = () => {
+    if (isPlaying){
+      audioRef.current.play();
+    }
   }
 
   return (
@@ -76,6 +82,7 @@ const Player = (props) => {
           icon={faAngleRight}
         />
         <audio
+          onLoadedData={autoPlayHandler}
           onTimeUpdate={timeUpdateHandler}
           onLoadedMetadata={timeUpdateHandler}
           ref={audioRef}
