@@ -128,3 +128,7 @@ body {
 .song-decription {
   padding-left: 1rem;
 }
+
+.selected {
+  background-color: rgb(133, 195, 216);
+}

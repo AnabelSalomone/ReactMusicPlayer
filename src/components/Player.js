@@ -50,6 +50,7 @@ const Player = (props) => {
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
+  //When selecting a new song, player should re-launch the play functionality
   const autoPlayHandler = () => {
     if (isPlaying){
       audioRef.current.play();
