@@ -9,7 +9,8 @@ import {
 import "../styles/index.css";
 
 const Player = (props) => {
-  const { currentSong, isPlaying, setIsPlaying } = props;
+  const { currentSong, isPlaying, setIsPlaying, setSongIndex, songIndex, songs } =
+    props;
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
@@ -52,10 +53,22 @@ const Player = (props) => {
 
   //When selecting a new song, player should re-launch the play functionality
   const autoPlayHandler = () => {
-    if (isPlaying){
+    if (isPlaying) {
       audioRef.current.play();
     }
-  }
+  };
+  
+  const nextSongHandler = () => {
+    if (songIndex < songs.length - 1) {
+      setSongIndex(songIndex + 1);
+    }
+  };
+
+  const previousSongHandler = () => {
+    if (songIndex > 0) {
+      setSongIndex(songIndex - 1);
+    }
+  };
 
   return (
     <div className="player-container">
@@ -71,7 +84,12 @@ const Player = (props) => {
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="player-control">
-        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleLeft} />
+        <FontAwesomeIcon
+          className="skip-back"
+          size="2x"
+          icon={faAngleLeft}
+          onClick={() => previousSongHandler()}
+        />
         <FontAwesomeIcon
           className="play"
           icon={!isPlaying ? faPlay : faPause}
@@ -81,6 +99,7 @@ const Player = (props) => {
           className="skip-forward"
           size="2x"
           icon={faAngleRight}
+          onClick={() => nextSongHandler()}
         />
         <audio
           onLoadedData={autoPlayHandler}

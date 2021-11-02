@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Player from "./components/Player";
 import Song from "./components/Song";
 import Data from "./data/data.js";
@@ -8,9 +8,15 @@ import "./styles/index.css";
 
 function App() {
   const [songs, setSongs] = useState(Data);
-  const [currentSong, setCurrentSong] = useState(songs[0]);
+  const [songIndex, setSongIndex] = useState(0);
+  const [currentSong, setCurrentSong] = useState(songs[songIndex]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [togglePanel, setTogglePanel] = useState(false);
+
+  useEffect(() => {
+    // TODO set is active to true to the current song
+    setCurrentSong(songs[songIndex]);
+  }, [songIndex]);
 
   return (
     <div className="App">
@@ -19,6 +25,9 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
+        songIndex={songIndex}
+        setSongIndex={setSongIndex}
+        songs={songs}
       />
       <OpenButton
         toggleLibrary={setTogglePanel}
