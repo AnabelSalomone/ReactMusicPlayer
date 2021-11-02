@@ -6,9 +6,9 @@ const Song = (props) => {
 
   return (
     <div className="song-container">
-      <img src={currentSong.cover} className={isPlaying ? `song-cover` : null} />
-      <h2>{currentSong.name}</h2>
-      <h3>{currentSong.artist}</h3>
+      <img data-testid="song-cover" src={currentSong.cover} className={isPlaying ? `song-cover` : null} />
+      <h2 data-testid="song-name">{currentSong.name}</h2>
+      <h3 data-testid="song-artist">{currentSong.artist}</h3>
     </div>
   );
 };
