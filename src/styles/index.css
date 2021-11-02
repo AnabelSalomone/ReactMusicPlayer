@@ -1,23 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-*{
+* {
   scrollbar-width: thin;
   scrollbar-color: rgba(155, 155, 155, 0.5), transparent;
 }
 
-*::-webkit-scrollbar{
-width: 5px;
+*::-webkit-scrollbar {
+  width: 5px;
 }
-*::-webkit-scrollbar-track{
+*::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb{
+*::-webkit-scrollbar-thumb {
   background-color: rgba(155, 155, 155, 0.5);
   border-radius: 20px;
   border: transparent;
 }
-
 
 body {
   margin: 0;
@@ -37,28 +36,30 @@ body {
 }
 
 .song-container img {
-    width: 20%;
-    border-radius: 50%;
+  width: 20%;
+  border-radius: 50%;
 }
 
-.song-container h1, h2, h3 {
-    color: rgb(59, 59, 59)
+.song-container h1,
+h2,
+h3 {
+  color: rgb(59, 59, 59);
 }
 
 .song-cover {
   animation-name: spin;
   animation-duration: 30000ms;
-   animation-iteration-count: infinite;
-  animation-timing-function: linear; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Player */
@@ -81,46 +82,61 @@ body {
   padding: 1rem 0rem; /* Lets you grab the slider without exactly selecting it */
 }
 
-.player-control{
-    width: 50%;
-    display: flex;
-    align-items:center;
-    justify-content: space-around;
+.player-control {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.play, .skip-back, .skip-forward {
-  cursor: pointer
+.play,
+.skip-back,
+.skip-forward {
+  cursor: pointer;
 }
-
 
 /*Library*/
 
-.library{
+.library {
   position: fixed;
   top: 0;
   left: 0;
   width: 20rem;
   height: 100%;
-  background-color: lightcyan;
+  background-color: #e0ffff;
   box-shadow: 2px 2px 50px gray;
   overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  opacity: 0;
 }
 
-.library h2{
+.library-is-open {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.library h2 {
   text-align: center;
 }
 
-.library-song{
+.library-close-panel {
+  position: absolute;
+  top: 0.6em;
+  right: 0.3em;
+}
+
+.library-song {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.library-song:hover{
+.library-song:hover {
   background-color: lightblue;
 }
 
-.library-song img{
+.library-song img {
   width: 30%;
   padding: 1rem 2rem;
 }
@@ -131,4 +147,27 @@ body {
 
 .selected {
   background-color: rgb(133, 195, 216);
+}
+
+.open-button-container {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-button {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Raleway";
+  padding: 0.5em;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.open-button:hover {
+  background-color: lightgray;
 }
